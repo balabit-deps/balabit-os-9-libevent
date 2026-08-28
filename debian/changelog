@@ -1,3 +1,32 @@
+libevent (2.1.12-stable-1ubuntu0.1) jammy-security; urgency=medium
+
+  * SECURITY UPDATE: dangling pointer in buffer reference handling
+    - debian/patches/CVE-2026-63381.patch: reset empty output buffer
+      pointers and add regression coverage in buffer.c and
+      test/regress_buffer.c.
+    - CVE-2026-63381
+  * SECURITY UPDATE: HTTP request smuggling in request body framing
+    - debian/patches/CVE-2026-63382_1.patch: require strict CRLF chunk
+      delimiters in http.c.
+    - debian/patches/CVE-2026-63382_2.patch: validate transfer encodings
+      and add tests in http-internal.h, http.c, and test/regress_http.c.
+    - CVE-2026-63382
+  * SECURITY UPDATE: out-of-bounds read during RPC tag decoding
+    - debian/patches/CVE-2026-63383.patch: bound tag decoding to contiguous
+      buffer data in event_tagging.c.
+    - CVE-2026-63383
+  * SECURITY UPDATE: integer overflow during RPC payload length decoding
+    - debian/patches/CVE-2026-63384.patch: reject oversized RPC payload
+      lengths in event_tagging.c and document the limit in
+      include/event2/tag.h.
+    - CVE-2026-63384
+  * SECURITY UPDATE: HTTP header injection during folded header handling
+    - debian/patches/CVE-2026-63385.patch: reject CR and LF in HTTP header
+      values and update tests in http.c and test/regress_http.c.
+    - CVE-2026-63385
+
+ -- Shafayat Hossain Majumder <shafayat.majumder@canonical.com>  Fri, 28 Aug 2026 16:44:15 -0400
+
 libevent (2.1.12-stable-1build3) jammy; urgency=high
 
   * No change rebuild for ppc64el baseline bump.
