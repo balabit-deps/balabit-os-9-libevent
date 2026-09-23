@@ -1,3 +1,17 @@
+libevent (2.1.12-stable-1ubuntu0.2) jammy-security; urgency=medium
+
+  * SECURITY UPDATE: Out-of-bounds write in dnsname_to_labels.
+    - debian/patches/CVE-2026-63387.patch: Correct off-by-one error in
+      evdns.c
+    - CVE-2026-63387
+  * SECURITY UPDATE: Heap out-of-bounds write via AF_UNIX+http+NDEBUG.
+    - debian/patches/CVE-2026-63388.patch: Allocate enough memory for AF_UNIX
+      addresses and check length in bufferevent-internal.h,
+      bufferevent_sock.c, and http.c
+    - CVE-2026-63388
+
+ -- Kyle Kernick <kyle.kernick@canonical.com>  Wed, 23 Sep 2026 13:17:53 -0600
+
 libevent (2.1.12-stable-1ubuntu0.1) jammy-security; urgency=medium
 
   * SECURITY UPDATE: dangling pointer in buffer reference handling
